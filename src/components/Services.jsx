@@ -10,7 +10,7 @@ function Services() {
     return (
         <section className='max-w-7xl mx-auto px-6 py-16'>
             <h2 className="text-center font-bold mb-2 text-2xl sm:text-4xl">Our<span className='underline decoration-orange-400 underline-offset-4 decoration-1 font-light'>Services</span></h2>
-             <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Our Trusted Company offers the Following Services</p>
+             <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>We Provide Trusted and End to End Real Estate Services Across Ghana.</p>
             <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
                     <div className="mb-4">
