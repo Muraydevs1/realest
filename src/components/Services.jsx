@@ -18,7 +18,7 @@ function Services() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Property Renovation</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
-                        The highest quality with the best price–performance ratio – this is what we focus all our efforts on. Excellence is our drive. We set ourselves high standards and create innovative solutions.
+                        We breathe new life into existing structures, upgrading spaces to meet modern standards while preserving their value and integrity.
                     </p>
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
@@ -27,7 +27,7 @@ function Services() {
                     </div>                                                                                  
                     <h3 className="text-xl font-semibold mb-2">Property Development</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
-                        To increase efficiency and precision, we use digital construction and innovative methods to use the latest technology. We are technological pioneers.
+                        From concept to completion, we design and construct high-quality residential and commercial properties that stand the test of time.
                     </p>
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
@@ -36,7 +36,7 @@ function Services() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Property Management</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">           
-                        We work with the best planning offices and executing companies on a situational and regional basis, tailored to the property and the initial situation. We are where our customers are.
+                        Our experienced team ensures your assets are well-maintained, tenants are supported, and your investment performs at its best.
                     </p>
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
@@ -45,7 +45,7 @@ function Services() {
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Land Sale</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
-                        Our entrepreneurial independence creates full cost transparency and maximum flexibility for our customers. We maintain transparent business relationships.
+                         Whether buying or selling, we connect clients with prime land opportunities backed by due diligence and market expertise.
                     </p>                                                                                                        
                 </div>                                      
             </div>                   
