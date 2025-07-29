@@ -13,7 +13,7 @@ function Footer() {
           <h2 className="text-4xl font-bold text-orange-500 mt-2">
             +233 (0) 244718186
           </h2>
-          <p className="mt-2 text-gray-300">Sakumono - Tema</p>
+          <p className="mt-2 text-gray-300">Plot M51, Tema, C25, Ghana.</p>
           <p className="text-gray-300">murraygh@yahoo.com</p>
         </div>
 
@@ -21,7 +21,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
           {/* Brand Info */}
           <div className="-mt-10">
-            <img className="h-28 w-28" src={assets.logo2} alt="" />
+            <img className="h-16 w-28 m-3" src={assets.logo1} alt="" />
             <p className="text-gray-300 -mt-5">
             We provide the best industrial and technological services throughout Ghana.
             </p>

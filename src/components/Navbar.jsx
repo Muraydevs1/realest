@@ -31,9 +31,9 @@ function Navbar() {
   }
 
   return (
-    <div className="fixed left-0 right-0 top-4 z-10 bg-transparent shadow-lg -mb-10 -mt-10">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-transparent">
-        <img src={assets.logo1} alt="Logo" className="h-24 w-25" />
+    <div className="fixed left-0 right-0 top-4 z-10 bg-transparent shadow-lg">
+      <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-transparent -mt-4 -mb-4">
+        <img src={assets.logo1} alt="Logo" className="h-10 w-auto md:h-16" />
 
         {/* Desktop Menu */}
         <ul className="hidden md:flex gap-7 text-gray-900 font-bold">

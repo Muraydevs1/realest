@@ -2,9 +2,11 @@ import React from 'react'
 import Header from './components/Header'
 import About from './components/About'
 import Projects from './components/Projects'
+import WhatSetsUsApart from './components/WhatSetsUsApart'
 import Testimonials from './components/Testimonials'
 import Footer from './components/Footer'
-import WhatSetsUsApart from './components/WhatSetsUsApart'
+import Services from './components/Services'
+
 
 
 function App() {
@@ -12,6 +14,7 @@ function App() {
     <div className='w-full overflow-hidden'>
         <Header/>
         <About/>
+        <Services/>
         <Projects/>
         <WhatSetsUsApart/>
         <Testimonials/>
