@@ -21,6 +21,7 @@ function Navbar() {
 
   const menuItems = [
     { href: "#About", label: "About", icon: User },
+    { href: "#Services", label: "Services", icon: FolderOpen },
     { href: "#Projects", label: "Projects", icon: FolderOpen },
     { href: "#Testimonials", label: "Testimonials", icon: MessageSquare },
     { href: "#Contacts", label: "Contact Us", icon: Mail },
