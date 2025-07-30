@@ -1,20 +1,17 @@
 import React from 'react'
-import { FaBuilding } from 'react-icons/fa';
-import { FaMapMarkedAlt } from 'react-icons/fa';
-import { FaCity } from 'react-icons/fa';
-import { MdHomeRepairService } from 'react-icons/md';
+import { assets } from '../assets/assets'
 
 
 
 function Services() {
     return (
         <section className='max-w-7xl mx-auto px-6 py-16' id='Services'>
-            <h2 className="text-center font-bold mb-2 text-2xl sm:text-4xl">Our<span className='underline decoration-orange-400 underline-offset-4 decoration-1 font-light'>Services</span></h2>
+            <h2 className="text-center font-bold mb-2 text-2xl sm:text-4xl">Our <span className='underline decoration-orange-400 underline-offset-4 decoration-1 font-light'>Services</span></h2>
              <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>We Provide Trusted and End to End Real Estate Services Across Ghana.</p>
             <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
                     <div className="mb-4">
-                         <MdHomeRepairService className="text-3xl text-orange-600" />
+                         <img src={assets.proprenovation_png} alt="Property Renovation" className="w-full h-auto mb-14" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Property Renovation</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -23,7 +20,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
                     <div className="mb-4">
-                        <FaCity className="text-3xl text-orange-600" />
+                        <img src={assets.propdevelopment_png}alt="Property Development" className="w-full h-auto mb-14" />
                     </div>                                                                                  
                     <h3 className="text-xl font-semibold mb-2">Property Development</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -32,7 +29,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
                     <div className="mb-4">                                                              
-                        <FaBuilding className="text-3xl text-orange-600" />
+                        <img src={assets.propmanagement_png} alt="Property Management" className="w-full h-auto mb-14" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Property Management</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">           
@@ -41,7 +38,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
                     <div className="mb-4">
-                        <FaMapMarkedAlt className="text-3xl text-orange-600"/>
+                        <img src={assets.landsale_png}alt="Land Sale" className="w-full h-auto mb-14" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2">Land Sale</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">

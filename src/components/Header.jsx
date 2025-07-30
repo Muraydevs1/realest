@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from './Navbar'
-
+import { Link } from 'react-router-dom'
 
 
 
@@ -14,7 +14,7 @@ const Header = function () {
                 Explore Homes that fit your dream
                 </h2>
           <div className='space-x-6 mt-16'>
-            <a href="#Projects" className='border border-orange-500 hover:text-gray-400 hover:bg-white px-8 py-3 rounded-full cursor-pointer uppercase'>Projects</a>
+            <Link to="/projects" className='border border-orange-500 hover:text-gray-400 hover:bg-white px-8 py-3 rounded-full cursor-pointer uppercase'>Projects</Link>
             <a href="#Contacts" className='border bg-orange-500 hover:bg-white hover:text-orange-500 border-white px-8 py-3 rounded-full cursor-pointer uppercase'>Contact Us</a>
           </div>
         </div>

@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Menu, X, User, FolderOpen, MessageSquare, Mail } from "lucide-react"
 import { assets } from '../assets/assets'
+import { Link } from "react-router-dom"
 
 
 function Navbar() {
@@ -20,10 +21,10 @@ function Navbar() {
   }, [showMobileMenu])
 
   const menuItems = [
-    { href: "#About", label: "About", icon: User },
-    { href: "#Services", label: "Services", icon: FolderOpen },
-    { href: "#Projects", label: "Projects", icon: FolderOpen },
-    { href: "#Testimonials", label: "Testimonials", icon: MessageSquare },
+    { label: "Home", icon: User, link: "/" },
+    { label: "Services", icon: FolderOpen, link: "/services" },
+    { label: "Projects", icon: FolderOpen, link: "/projects" },
+    { label: "Testimonials", icon: MessageSquare, link: "/testimonials" },
     { href: "#Contacts", label: "Contact Us", icon: Mail },
   ]
 
@@ -40,9 +41,21 @@ function Navbar() {
         <ul className="hidden md:flex gap-7 text-gray-900 font-bold">
           {menuItems.map((item, index) => (
             <li key={index}>
-              <a href={item.href} className="cursor-pointer hover:text-gray-400 underline-animation transition duration-200">
-                {item.label}
-              </a>
+              {item.link ? (
+                <Link
+                  to={item.link}
+                  className="cursor-pointer hover:text-gray-400 underline-animation transition duration-200"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  href={item.href}
+                  className="cursor-pointer hover:text-gray-400 underline-animation transition duration-200"
+                >
+                  {item.label}
+                </a>
+              )}
             </li>
           ))}
         </ul>
@@ -80,7 +93,17 @@ function Navbar() {
         <nav className="flex flex-col mt-8">
           {menuItems.map((item, index) => {
             const IconComponent = item.icon
-            return (
+            return item.link ? (
+              <Link
+                key={index}
+                to={item.link}
+                onClick={handleMenuItemClick}
+                className="flex items-center gap-4 px-6 py-4 text-gray-700 hover:bg-gray-50 hover:text-orange-500 transition duration-200 border-b border-gray-50 last:border-b-0"
+              >
+                <IconComponent className="w-5 h-5" />
+                <span className="text-lg font-medium">{item.label}</span>
+              </Link>
+            ) : (
               <a
                 key={index}
                 onClick={handleMenuItemClick}

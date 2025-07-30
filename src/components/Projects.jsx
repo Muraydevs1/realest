@@ -8,17 +8,32 @@ function Projects() {
     const [CurrentIndex, setCurrentIndex] = useState(0)
     const [CardstoShow, setCardstoShow] = useState(1)
 
-    useEffect(()=>{const updateCardsToShow =() =>{
-        if(window.innerWidth >= 1024){
-            setCardstoShow(projectsData.length);} else{
-                setCardstoShow(1)
-            }};
-            updateCardsToShow();
+    const doubledProjects = [...projectsData, ...projectsData];
 
-            window.addEventListener('resize',updateCardsToShow)
-            return ()=> window.removeEventListener('resize', updateCardsToShow);
-        },[]
-    )
+    useEffect(() => {
+  const updateCardsToShow = () => {
+    if (window.innerWidth >= 1024) {
+      setCardstoShow(projectsData.length);
+    } else {
+      setCardstoShow(1);
+    }
+  };
+  updateCardsToShow();
+
+  window.addEventListener('resize', updateCardsToShow);
+
+  // ✅ Auto scroll interval
+  const interval = setInterval(() => {
+    setCurrentIndex(prevIndex => (prevIndex + 1) % projectsData.length);
+  }, 5000); // change every 5 seconds
+
+  return () => {
+    window.removeEventListener('resize', updateCardsToShow);
+    clearInterval(interval); // ✅ cleanup to avoid memory leaks
+  };
+}, []);
+
+// Removed the useEffect that resets CurrentIndex to 0
 
     const nextProject = () => {
         console.log("Next button clicked");
@@ -46,9 +61,14 @@ function Projects() {
             </div>
 
             <div className='overflow-hidden'>
-                <div className='flex gap-8 transition-transform duration-500 ease-in-out'
-                style={{transform: `translateX(-${(CurrentIndex*100)/CardstoShow}%)`}}>
-                    {projectsData.map((projects, index)=>(
+                <div 
+                  className='flex gap-8'
+                  style={{
+                    transform: `translateX(-${(CurrentIndex * 100) / CardstoShow}%)`,
+                    transition: 'transform 0.5s ease-in-out'
+                  }}
+                >
+                    {doubledProjects.map((projects, index)=>(
                         <div key={index} className='relative flex-shrink-0 w-full sm:w-1/4'> 
                         <img src={projects.image} alt={projects.title} className='w-full h-auto mb-14'/>
                         <div className='absolute left-0 right-0 bottom-5 flex justify-center'>

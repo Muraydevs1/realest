@@ -19,8 +19,17 @@ import profile_img_3 from './profile_img_3.jpeg'
 import phone from './phone.png'
 import logo1 from './logo1.png'
 import logo2 from './logo2.png'
+import renovation_png from './renovation.png'
+import propdevelopment_png from './propdev.jpg'
+import propmanagement_png from './propman.jpeg'
+import proprenovation_png from './proprenov.jpg'
+import landsale_png from './landsale.jpeg'
 
 export const assets = {
+    proprenovation_png,
+    propdevelopment_png,
+    propmanagement_png,
+    landsale_png,
     logo,
     logo_dark,
     cross_icon,
@@ -36,7 +45,8 @@ export const assets = {
     right_arrow,
     phone, 
     logo1,
-    logo2
+    logo2,
+    renovation_png
 }
 
 export const projectsData = [
