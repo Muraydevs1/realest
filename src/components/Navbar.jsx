@@ -21,11 +21,11 @@ function Navbar() {
   }, [showMobileMenu])
 
   const menuItems = [
-    { label: "Home", icon: User, link: "/" },
-    { label: "Services", icon: FolderOpen, link: "/services" },
-    { label: "Projects", icon: FolderOpen, link: "/projects" },
-    { label: "Testimonials", icon: MessageSquare, link: "/testimonials" },
-    { href: "#Contacts", label: "Contact Us", icon: Mail },
+    { label: "HOME", icon: User, link: "/" },
+    { label: "SERVICES", icon: FolderOpen, link: "/services" },
+    { label: "PROJECTS", icon: FolderOpen, link: "/projects" },
+    { label: "TESTIMONIALS", icon: MessageSquare, link: "/testimonials" },
+    { label: "CONTACT US", icon: Mail, href: "#Contacts", },
   ]
 
   const handleMenuItemClick = () => {
