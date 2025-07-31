@@ -2,19 +2,20 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import About from './components/About';
-import WhatSetsUsApart from './components/WhatSetsUsApart';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import ProjectsPage from './pages/ProjectsPage';
-import ServicesPage from './pages/ServicesPage';
-import TestimonialsPage from './pages/TestimonialsPage';
+import ProjectDetails from './pages/ProjectDetails';
+import AboutPage from './pages/AboutUs'; 
+import Services from './components/Services';
+import Projects from './components/Projects';
 
 function Home() {
   return (
     <>
       <Header />
       <About />
-      <WhatSetsUsApart />
+      <Services />
+      <Projects />
     </>
   );
 }
@@ -26,9 +27,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<ProjectsPage />} />
-          <Route path="/services" element={<ServicesPage />} />
-          <Route path="/testimonials" element={<TestimonialsPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/projects/:id" element={<ProjectDetails />} />
+          <Route path="/projects" element={<Projects />} />
         </Routes>
         <Footer />
       </div>

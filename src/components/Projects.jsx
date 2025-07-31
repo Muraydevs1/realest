@@ -1,48 +1,48 @@
 import React from 'react'
 import { assets, projectsData } from '../assets/assets'
-import { useState } from 'react'
-import { useEffect } from 'react'
-
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 function Projects() {
     const [CurrentIndex, setCurrentIndex] = useState(0)
     const [CardstoShow, setCardstoShow] = useState(1)
+    const navigate = useNavigate();
 
     const doubledProjects = [...projectsData, ...projectsData];
 
     useEffect(() => {
-  const updateCardsToShow = () => {
-    if (window.innerWidth >= 1024) {
-      setCardstoShow(projectsData.length);
-    } else {
-      setCardstoShow(1);
-    }
-  };
-  updateCardsToShow();
+        const updateCardsToShow = () => {
+            if (window.innerWidth >= 1024) {
+                setCardstoShow(projectsData.length);
+            } else {
+                setCardstoShow(1);
+            }
+        };
+        updateCardsToShow();
 
-  window.addEventListener('resize', updateCardsToShow);
+        window.addEventListener('resize', updateCardsToShow);
 
-  // ✅ Auto scroll interval
-  const interval = setInterval(() => {
-    setCurrentIndex(prevIndex => (prevIndex + 1) % projectsData.length);
-  }, 5000); // change every 5 seconds
+        const interval = setInterval(() => {
+            setCurrentIndex(prevIndex => (prevIndex + 1) % projectsData.length);
+        }, 5000);
 
-  return () => {
-    window.removeEventListener('resize', updateCardsToShow);
-    clearInterval(interval); // ✅ cleanup to avoid memory leaks
-  };
-}, []);
-
-// Removed the useEffect that resets CurrentIndex to 0
+        return () => {
+            window.removeEventListener('resize', updateCardsToShow);
+            clearInterval(interval);
+        };
+    }, []);
 
     const nextProject = () => {
-        console.log("Next button clicked");
-        setCurrentIndex((prevIndex)=> (prevIndex +1) % projectsData.length)}
+        setCurrentIndex((prevIndex)=> (prevIndex +1) % projectsData.length);
+    }
 
-        const previousProject = () => {
-            console.log("Previous button clicked");
-            setCurrentIndex((prevIndex)=> prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1)}
-    
+    const previousProject = () => {
+        setCurrentIndex((prevIndex)=> prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1);
+    }
+
+    const handleProjectClick = (projectId) => {
+        navigate(`/projects/${projectId}`);
+    };
 
     return (
         <div 
@@ -69,14 +69,18 @@ function Projects() {
                   }}
                 >
                     {doubledProjects.map((projects, index)=>(
-                        <div key={index} className='relative flex-shrink-0 w-full sm:w-1/4'> 
-                        <img src={projects.image} alt={projects.title} className='w-full h-auto mb-14'/>
+                        <div 
+                          key={index} 
+                          className='relative flex-shrink-0 w-full sm:w-1/4 hover:cursor-pointer'
+                          onClick={() => handleProjectClick(projects.id)}
+                        > 
+                        <img src={projects.image[0]} alt={projects.title} className='w-full h-max object-cover mb-14'/>
                         <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
-                            <div className='inline-block bg-orange-50 w-3/4 px-4 py-2 shadow-md'>
-                                <h2 className='text-xl font-semibold text-gray-800'>
+                            <div className='inline-block bg-orange-50 w-3/4 px-4 py-2 shadow-md text-center'>
+                                <h2 className='text-lg font-normal text-gray-800'>
                                     {projects.title}
                                 </h2>
-                                <p className='text-gray-500 text-sm'> {projects.price} <span>/</span>{projects.location} </p>
+                                <p className='text-gray-500 text-sm'>{projects.location} </p>
                             </div>
                         </div>
                         </div>

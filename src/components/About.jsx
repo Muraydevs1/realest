@@ -35,7 +35,6 @@ function About() {
 Driven by a dedication to quality and client satisfaction, Murray Investments delivers end-to-end real estate solutions, ranging from conceptual planning and development to comprehensive property management services. Whether you’re looking to invest, build, buy, or lease, Murray stands as a trusted partner in real estate.
 
 Our extensive experience in the industry, combined with strategic marketing approaches and efficient management practices, positions us as a key player in the property sector.</p>
-                    <button className='bg-orange-500 text-white px-8 py-2 rounded hover:bg-blue-700 '>Learn More</button>
                 </div>
             </div>
         </div>

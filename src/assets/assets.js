@@ -7,12 +7,26 @@ import left_arrow from './left_arrow.svg'
 import right_arrow from './right_arrow.svg'
 import header_img from './header_img.png'
 import brand_img from './brand_img.png'
-import project_img_1 from './project_img_1.jpg'
-import project_img_2 from './project_img_2.jpg'
-import project_img_3 from './project_img_3.jpg'
-import project_img_4 from './project_img_4.jpg'
-import project_img_5 from './project_img_5.jpg'
-import project_img_6 from './project_img_6.jpg'
+import dahwenya_pic1 from './dawhwnya1.jpeg'
+import dahwenya_pic2 from './dawhwnya2.jpeg'
+import dahwenya_pic3 from './dawhwnya3.jpeg'
+import dahwenya_pic4 from './dawhwnya4.jpeg'
+import dahwenya_pic5 from './dawhwnya5.jpeg'
+import dahwenya_vid from './dawenyavid.mp4'
+import tamale_pic1 from  './tamale1.jpeg'
+import tamale_pic2 from  './tamale2.jpeg'
+import tamale_pic3 from  './tamale3.jpeg'
+import tamale_pic4 from  './tamale4.jpeg'
+import tamale_pic5 from  './tamale5.jpeg'
+import tamale_pic6 from  './tamale6.jpeg'
+import tamale_pic7 from  './tamale7.jpeg'
+import eastlegon_pic1 from './eastlegon1.jpeg'
+import eastlegon_pic2 from './eastlegon2.jpeg'
+import eastlegon_pic3 from './eastlegon3.jpeg'
+import eastlegon_pic4 from './eastlegon4.jpeg'
+import eastlegon_pic5 from './eastlegon5.jpeg'
+import frafraha_pic1 from './frafraha.jpeg'
+import frafraha_pic2 from './frafraha1.jpeg'
 import profile_img_1 from './profile_img_1.jpeg'
 import profile_img_2 from './profile_img_2.jpeg'
 import profile_img_3 from './profile_img_3.jpeg'
@@ -24,6 +38,10 @@ import propdevelopment_png from './propdev.jpg'
 import propmanagement_png from './propman.jpeg'
 import proprenovation_png from './proprenov.jpg'
 import landsale_png from './landsale.jpeg'
+import front_east from './Feastlegon2.jpeg'
+import front_dawhenya from './Fdawhwnya1.jpeg'
+import front_tamale from './Ftamale7.jpeg'
+import { desc, video } from 'framer-motion/client'
 
 export const assets = {
     proprenovation_png,
@@ -37,10 +55,29 @@ export const assets = {
     star_icon,
     header_img,
     brand_img,
-    project_img_1,
-    project_img_2,
-    project_img_3,
-    project_img_4,
+    front_east,
+    front_dawhenya, 
+    front_tamale,
+    dahwenya_pic1,
+    dahwenya_pic2,
+    dahwenya_pic3,
+    dahwenya_pic4,
+    dahwenya_pic5,
+    eastlegon_pic1,
+    eastlegon_pic2,
+    eastlegon_pic3,                       
+    eastlegon_pic4,
+    eastlegon_pic5,
+    frafraha_pic1,                          
+    frafraha_pic2,
+    tamale_pic1,          
+    tamale_pic2,
+    tamale_pic3,      
+    tamale_pic4,
+    tamale_pic5,  
+    tamale_pic6,
+    tamale_pic7,
+    dahwenya_vid,
     left_arrow,
     right_arrow,
     phone, 
@@ -51,40 +88,74 @@ export const assets = {
 
 export const projectsData = [
     {
-      title: "Skyline Haven",
-      price: "$2,500,000",
-      location: "Accra",
-      image: project_img_1
+      id:1,
+      title: "Modern Apartments",
+      description: "A luxurious apartment complex with modern amenities and stunning views.",
+      location: "Dawhenya",
+      image:[
+        front_dawhenya,
+        dahwenya_pic1,
+        dahwenya_pic2,        
+        dahwenya_pic3,
+        dahwenya_pic4,  
+        dahwenya_pic5,  
+      ],
+      video: dahwenya_vid,
     },
     {
-      title: "Vista Verde",
-      price: "$2,50,000",
-      location: "Accra",
-      image: project_img_2
-    },
-    {
-      title: "Serenity Suites",
-      price: "$2,500,000",
-      location: "Kumasi",
-      image: project_img_3
-    },
-    {
-      title: "Central Square",
-      price: "$2,500,000",
-      location: "Tema",
-      image: project_img_4
-    },
-    {
-      title: "Vista Verde",
-      price: "$2,500,000",
-      location: "Tema",
-      image: project_img_5
-    },
-    {
-      title: "Serenity Suites",
-      price: "$2,500,000",
+      id:2,
+      title: "Guest House",
+      description: "A cozy guest house under construction at the airport avenue.",
       location: "Tamale",
-      image: project_img_6
+      image: [
+        front_tamale,
+        tamale_pic1,
+        tamale_pic2,        
+        tamale_pic3,
+        tamale_pic4,  
+        tamale_pic5,  
+        tamale_pic6,
+        tamale_pic7,
+      ],
+      video: null,
+    },
+    {
+      id:3,
+      title: "5 bedroom House",
+      description: "A spacious 5-bedroom house with a modern design.",
+      location: "East Legon",
+      image: [
+        front_east,
+        eastlegon_pic1,
+        eastlegon_pic2,        
+        eastlegon_pic3,
+        eastlegon_pic4,  
+        eastlegon_pic5,
+      ],
+      video: null,
+    },
+    {
+      id:4,
+      title: "Customized Apartments",
+      description: "A customized apartment complex with unique designs and features.",
+      location: "Frafraha",
+      image: [
+        frafraha_pic1,
+        frafraha_pic2,
+      ],
+      video: null,
+    },
+    {
+      id:5,
+      title: "Vista Verde",
+      location: "Tema",
+      image: ''
+    },
+    {
+      id:6,
+      title: "Serenity Suites",
+      location: "Tamale",
+      image: ''
     },
     
   ];
