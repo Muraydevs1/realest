@@ -3,7 +3,8 @@
 import { useEffect, useState } from "react"
 import { Menu, X, User, FolderOpen, MessageSquare, Mail } from "lucide-react"
 import { assets } from '../assets/assets'
-import { href, Link } from "react-router-dom"
+import { Link } from "react-router-dom"
+
 
 
 function Navbar() {
@@ -22,8 +23,8 @@ function Navbar() {
 
   const menuItems = [
     { label: "HOME", icon: User, link: "/" },
-    { label: "ABOUT US", icon: User, link: "/about" },
-    { label: "PROJECTS", icon: User, link: "/projects" },
+    { label: "ABOUT US", icon: MessageSquare, link: "/about" },
+    { label: "PROJECTS", icon: FolderOpen, link: "/projects" },
     { label: "CONTACT US", icon: Mail, href: "#Contacts", },
   ]
 
@@ -32,7 +33,7 @@ function Navbar() {
   }
 
   return (
-    <div className="fixed left-0 right-0 top-4 z-10 bg-transparent shadow-lg">
+    <div className="fixed left-0 right-0 top-4 z-10 bg-white -mt-5 py-2 shadow-lg">
       <div className="container mx-auto flex justify-between items-center py-4 px-6 md:px-20 lg:px-32 bg-transparent -mt-4 -mb-4">
         <Link to="/"><img src={assets.logo1} alt="Logo" className="h-10 w-auto md:h-16 -ml-3 mr-4 hover:cursor-pointer" /></Link>
         {/* Desktop Menu */}
@@ -58,7 +59,7 @@ function Navbar() {
           ))}
         </ul>
 
-          <a href='tel:+233 (0) 554061972' className=" hidden md:flex items-center gap-2 text-white font-semibold px-4 py-2 hover:underline ml-2 ">
+          <a href='tel:+233 (0) 554061972' className=" hidden md:flex items-center gap-2 text-gray-900 font-semibold px-4 py-2 hover:underline ml-2 ">
                 <img  className='w-6 h-6' src={assets.phone} alt="" />
                 +233 (0) 244718186
             </a>
