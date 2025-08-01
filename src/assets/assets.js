@@ -89,19 +89,20 @@ export const assets = {
 export const projectsData = [
     {
       id:1,
-      title: "Modern Apartments",
-      description: "A luxurious apartment complex with modern amenities and stunning views.",
-      location: "Dawhenya",
-      image:[
-        dahwenya_pic1,
-        dahwenya_pic2,        
-        dahwenya_pic3,
-        dahwenya_pic4,  
-        dahwenya_pic5,  
+      title: "5 bedroom House",
+      description: "A spacious 5-bedroom house with a modern design.",
+      location: "East Legon",
+      image: [
+        front_east,
+        eastlegon_pic1,
+        eastlegon_pic2,        
+        eastlegon_pic3,
+        eastlegon_pic4,  
+        eastlegon_pic5,
       ],
-      frontimage: front_dawhenya,
-      alt: "Dawhenya Project Front View",
-      video: dahwenya_vid,
+      frontimage: front_east,
+      alt: "East Legon Project Front View",
+      video: null,
       status: "Status: Completed ✅"
     },
     {
@@ -125,20 +126,19 @@ export const projectsData = [
     },
     {
       id:3,
-      title: "5 bedroom House",
-      description: "A spacious 5-bedroom house with a modern design.",
-      location: "East Legon",
-      image: [
-        front_east,
-        eastlegon_pic1,
-        eastlegon_pic2,        
-        eastlegon_pic3,
-        eastlegon_pic4,  
-        eastlegon_pic5,
+      title: "Modern Apartments",
+      description: "A luxurious apartment complex with modern amenities and stunning views.",
+      location: "Dawhenya",
+      image:[
+        dahwenya_pic1,
+        dahwenya_pic2,        
+        dahwenya_pic3,
+        dahwenya_pic4,  
+        dahwenya_pic5,  
       ],
-      frontimage: front_east,
-      alt: "East Legon Project Front View",
-      video: null,
+      frontimage: front_dawhenya,
+      alt: "Dawhenya Project Front View",
+      video: dahwenya_vid,
       status: "Status: Completed ✅"
     },
     {
