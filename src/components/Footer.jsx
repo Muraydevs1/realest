@@ -56,7 +56,7 @@ function Footer() {
              <div  className="flex space-x-4 mt-4"> 
                 <a href="mailto:murraygh@yahoo.com" className="text-blue-600 hover:text-blue-800 flex items-center gap-2"><FaEnvelope /></a>
               <FaFacebookF className="text-xl hover:text-orange-400 cursor-pointer" />
-              <FaWhatsapp className="text-xl hover:text-orange-400 cursor-pointer" />
+              <a href="https://wa.me/233244718186"><FaWhatsapp className="text-xl hover:text-orange-400 cursor-pointer" /></a>
               <a href="tel:+233244718186" className="text-green-600 hover:text-green-800 flex items-center gap-2"><FaPhone /></a>
              </div>
             </div>
