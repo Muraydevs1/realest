@@ -20,8 +20,9 @@ function ProjectDetails() {
   return (
     <div className="max-w-4xl mx-auto py-10 px-4 pt-20 md:p-20">
       <h1 className="text-3xl font-bold mb-4">{project.title}</h1>
-      <h2 className="text-xl font-mono mb-4">{project.location}</h2>
-      <p className="text-gray-600 mb-6">{project.description}</p>
+      <h2 className="text-xl font-mono mb-2">{project.location}</h2>
+      <p className="text-gray-600 font-serif mb-1">{project.description}</p>
+      <p className="text-gray-600 font-serif mb-2">{project.status}</p>
 
       {/* Image Gallery */}
       <div className="relative w-full h-auto mb-6">

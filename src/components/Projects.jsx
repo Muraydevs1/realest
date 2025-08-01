@@ -47,7 +47,7 @@ function Projects() {
     return (
         <div 
         className='container mx-auto py-4 pt-20 px-6 md:px-20 lg:px-32 my-20 w-full overflow-x-hidden' id='Projects'>
-            <h1 className='text-center font-bold mb-2 text-2xl sm:text-4xl'>Projects <span className='underline  decoration-orange-400  underline-offset-4 decoration-1 font-light'>Completed</span></h1>
+            <h1 className='text-center font-bold mb-2 text-2xl sm:text-4xl'>Our <span className='underline  decoration-orange-400  underline-offset-4 decoration-1 font-light'>Projects</span></h1>
             <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Crafting Space, Building Legacies-Explore our Portfolio</p>
             <div className='flex justify-end items-center mb-8'>
                 <button onClick={previousProject}
@@ -74,7 +74,7 @@ function Projects() {
                           className='relative flex-shrink-0 w-full sm:w-1/4 hover:cursor-pointer'
                           onClick={() => handleProjectClick(projects.id)}
                         > 
-                        <img src={projects.image[0]} alt={projects.title} className='w-full h-max object-cover mb-14'/>
+                        <img src={projects.frontimage} alt={projects.alt} className='w-full h-max object-cover mb-14'/>
                         <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
                             <div className='inline-block bg-orange-50 w-3/4 px-4 py-2 shadow-md text-center'>
                                 <h2 className='text-lg font-normal text-gray-800'>

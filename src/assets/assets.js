@@ -39,7 +39,7 @@ import propmanagement_png from './propman.jpeg'
 import proprenovation_png from './proprenov.jpg'
 import landsale_png from './landsale.jpeg'
 import front_east from './Feastlegon2.jpeg'
-import front_dawhenya from './Fdawhwnya1.jpeg'
+import front_dawhenya from './Fdawhwnya4.jpeg'
 import front_tamale from './Ftamale7.jpeg'
 import { desc, video } from 'framer-motion/client'
 
@@ -93,14 +93,16 @@ export const projectsData = [
       description: "A luxurious apartment complex with modern amenities and stunning views.",
       location: "Dawhenya",
       image:[
-        front_dawhenya,
         dahwenya_pic1,
         dahwenya_pic2,        
         dahwenya_pic3,
         dahwenya_pic4,  
         dahwenya_pic5,  
       ],
+      frontimage: front_dawhenya,
+      alt: "Dawhenya Project Front View",
       video: dahwenya_vid,
+      status: "Status: Completed ✅"
     },
     {
       id:2,
@@ -108,7 +110,6 @@ export const projectsData = [
       description: "A cozy guest house under construction at the airport avenue.",
       location: "Tamale",
       image: [
-        front_tamale,
         tamale_pic1,
         tamale_pic2,        
         tamale_pic3,
@@ -117,7 +118,10 @@ export const projectsData = [
         tamale_pic6,
         tamale_pic7,
       ],
+      frontimage: front_tamale,
+      alt: "Tamale Project Front View",
       video: null,
+      status: "Status: Under Construction ⛔️"
     },
     {
       id:3,
@@ -132,7 +136,10 @@ export const projectsData = [
         eastlegon_pic4,  
         eastlegon_pic5,
       ],
+      frontimage: front_east,
+      alt: "East Legon Project Front View",
       video: null,
+      status: "Status: Completed ✅"
     },
     {
       id:4,
@@ -143,21 +150,11 @@ export const projectsData = [
         frafraha_pic1,
         frafraha_pic2,
       ],
+      frontimage: frafraha_pic1,
+      alt: "Frafraha Project Front View",
       video: null,
+      status: "Status: Under Construction ⛔️"
     },
-    {
-      id:5,
-      title: "Vista Verde",
-      location: "Tema",
-      image: ''
-    },
-    {
-      id:6,
-      title: "Serenity Suites",
-      location: "Tamale",
-      image: ''
-    },
-    
   ];
 
   export const testimonialsData = [

@@ -9,7 +9,7 @@ function Services() {
             <h2 className="text-center font-bold mb-2 text-2xl sm:text-4xl">Our <span className='underline decoration-orange-400 underline-offset-4 decoration-1 font-light'>Services</span></h2>
              <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>We Provide Trusted and End to End Real Estate Services Across Ghana.</p>
             <div className="grid md:grid-cols-3 gap-6">
-                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
+                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropRen'>
                     <div className="mb-4">
                          <img src={assets.proprenovation_png} alt="Property Renovation" className="w-full h-auto mb-14" />
                     </div>
@@ -18,7 +18,7 @@ function Services() {
                         We breathe new life into existing structures, upgrading spaces to meet modern standards while preserving their value and integrity.
                     </p>
                 </div>
-                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
+                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropDev'>
                     <div className="mb-4">
                         <img src={assets.propdevelopment_png}alt="Property Development" className="w-full h-auto mb-14" />
                     </div>                                                                                  
@@ -27,7 +27,7 @@ function Services() {
                         From concept to completion, we design and construct high-quality residential and commercial properties that stand the test of time.
                     </p>
                 </div>
-                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
+                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropMan'>
                     <div className="mb-4">                                                              
                         <img src={assets.propmanagement_png} alt="Property Management" className="w-full h-auto mb-14" />
                     </div>
@@ -36,7 +36,7 @@ function Services() {
                         Our experienced team ensures your assets are well-maintained, tenants are supported, and your investment performs at its best.
                     </p>
                 </div>
-                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition">
+                <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='LandSale'>
                     <div className="mb-4">
                         <img src={assets.landsale_png}alt="Land Sale" className="w-full h-auto mb-14" />
                     </div>

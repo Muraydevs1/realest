@@ -31,10 +31,10 @@ function Footer() {
           <div>
             <h4 className="text-lg font-semibold">Company</h4>
             <ul className="mt-2 space-y-2 text-gray-400">
-              <li className="hover:text-orange-400 cursor-pointer">About Us</li>
-              <li className="hover:text-orange-400 cursor-pointer">Services</li>
-              <li className="hover:text-orange-400 cursor-pointer">Projects</li>
-              <li className="hover:text-orange-400 cursor-pointer">Contacts</li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="#About">About Us</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="#Services">Services</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="#Projects">Projects</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="#Contacts">Contacts</a></li>
             </ul>
           </div>
 
@@ -42,9 +42,10 @@ function Footer() {
           <div>
             <h4 className="text-lg font-semibold">Services</h4>
             <ul className="mt-2 space-y-2 text-gray-400">
-              <li className="hover:text-orange-400 cursor-pointer">Real Estate Development</li>
-              <li className="hover:text-orange-400 cursor-pointer">Property Management</li>
-              <li className="hover:text-orange-400 cursor-pointer">Marketing</li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="PropRen">Property Renovation</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="Propdev">Property Development</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="PropMan">Property Management</a></li>
+              <li className="hover:text-orange-400 cursor-pointer"><a href="LandSale">Land Sale</a></li>
             </ul>
           </div>
 
