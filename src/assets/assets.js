@@ -107,6 +107,23 @@ export const projectsData = [
     },
     {
       id:2,
+      title: "Modern Apartments",
+      description: "A luxurious apartment complex with modern amenities and stunning views.",
+      location: "Dawhenya",
+      image:[
+        dahwenya_pic1,
+        dahwenya_pic2,        
+        dahwenya_pic3,
+        dahwenya_pic4,  
+        dahwenya_pic5,  
+      ],
+      frontimage: front_dawhenya,
+      alt: "Dawhenya Project Front View",
+      video: dahwenya_vid,
+      status: "Status: Completed ✅"
+    },
+    {
+      id:3,
       title: "Guest House",
       description: "A cozy guest house under construction at the airport avenue.",
       location: "Tamale",
@@ -123,23 +140,6 @@ export const projectsData = [
       alt: "Tamale Project Front View",
       video: null,
       status: "Status: Under Construction ⛔️"
-    },
-    {
-      id:3,
-      title: "Modern Apartments",
-      description: "A luxurious apartment complex with modern amenities and stunning views.",
-      location: "Dawhenya",
-      image:[
-        dahwenya_pic1,
-        dahwenya_pic2,        
-        dahwenya_pic3,
-        dahwenya_pic4,  
-        dahwenya_pic5,  
-      ],
-      frontimage: front_dawhenya,
-      alt: "Dawhenya Project Front View",
-      video: dahwenya_vid,
-      status: "Status: Completed ✅"
     },
     {
       id:4,
