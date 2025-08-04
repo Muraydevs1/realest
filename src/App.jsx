@@ -5,10 +5,11 @@ import About from './components/About';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import ProjectDetails from './pages/ProjectDetails';
-import AboutPage from './pages/AboutUs'; 
+import AboutUs from './pages/AboutUs'; 
 import Services from './components/Services';
 import Projects from './components/Projects';
 import ScrollToTop from './components/ScrollToTop';
+
 
 function Home() {
   return (
@@ -29,7 +30,7 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutPage />} />
+          <Route path="/about" element={<AboutUs />} />
           <Route path="/projects/:id" element={<ProjectDetails />} />
           <Route path="/projects" element={<Projects />} />
         </Routes>

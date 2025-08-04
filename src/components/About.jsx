@@ -1,5 +1,6 @@
 import React from 'react'
 import { assets } from '../assets/assets'
+import { Link } from 'react-router-dom'
 
 
 function About() {
@@ -30,11 +31,12 @@ function About() {
                             <p>Ongoing Projects</p>
                         </div>
                     </div>
-                    <p className='my-10 max-w-lg text-gray-700 text-justify md:text-xl mt-4 leading-relaxed'> Murray Investments Ltd. is a reputable real estate development and construction firm committed to excellence in the built environment. With a strong focus on development, management, and marketing, the company specializes in the sales and rentals of all types of properties.
-
-Driven by a dedication to quality and client satisfaction, Murray Investments delivers end-to-end real estate solutions, ranging from conceptual planning and development to comprehensive property management services. Whether you’re looking to invest, build, buy, or lease, Murray stands as a trusted partner in real estate.
-
-Our extensive experience in the industry, combined with strategic marketing approaches and efficient management practices, positions us as a key player in the property sector.</p>
+                    <p className='my-10 max-w-lg text-gray-700 text-justify md:text-xl text-xl mt-4 leading-relaxed'> 
+                        Murray Investments Co. Ltd is a multiline realty company established to provide diversified and innovative products in the real estate industry in Ghana. The company develops, markets and manages properties of all sorts.
+                        Our mission is to provide customized and innovative housing products and services by deploying new and cost effective technology, while providing secure legal cover, and delivering in a contractually bound manner.
+                    </p>
+                    <p className='italic text-orange-500 -mt-7 font-serif text-justify'>"Your Customized Housing Solutions Provider"</p>
+                    <Link to="/about" className='border border-orange-500 hover:text-gray-400 hover:bg-white px-5 py-3 rounded-full cursor-pointer uppercase mt-6'>Learn More</Link>
                 </div>
             </div>
         </div>

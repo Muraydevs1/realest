@@ -11,7 +11,7 @@ const Header = function () {
             <div
              className='text-white container text-center py-4 px-6 mx-auto md:px-20 lg:px-32' >
                 <h2 className='text-5xl sm:text-6xl md:text-[82px] inline-block max-w-3xl font-semibold pt-20 '>
-                Explore Homes that fit your dream
+                Explore Homes that fit Your dream.
                 </h2>
           <div className='space-x-6 mt-16'>
             <Link to="/projects" className='border border-orange-500 hover:text-gray-400 hover:bg-white px-8 py-3 rounded-full cursor-pointer uppercase'>Projects</Link>
