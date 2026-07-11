@@ -28,7 +28,8 @@ function ProjectDetails() {
       <div className="relative w-full h-auto mb-6">
         <img
           src={project.image[currentImageIndex]}
-          alt={`Project ${currentImageIndex + 1}`}
+          alt={`${project.title} — photo ${currentImageIndex + 1} of ${project.image.length}`}
+          decoding="async"
           className="w-full h-auto rounded-md"
         />
         <div className="flex justify-between mt-2">
@@ -51,7 +52,7 @@ function ProjectDetails() {
       {project.video && (
         <div className="mt-8">
           <h2 className="text-xl font-semibold mb-2">Project Walkthrough</h2>
-          <video controls className="w-full rounded">
+          <video controls preload="metadata" className="w-full rounded">
             <source src={project.video} type="video/mp4" />
             Your browser does not support the video tag.
           </video>

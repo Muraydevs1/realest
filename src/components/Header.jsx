@@ -1,12 +1,20 @@
 import React from 'react'
 import Navbar from './Navbar'
 import { Link } from 'react-router-dom'
+import { assets } from '../assets/assets'
 
 
 
 const Header = function () {
     return (
-        <div className='min-h-screen mb-4 bg-cover bg-center flex items-center w-full overflow-hidden' style = {{backgroundImage:"url('https://cdn.pixabay.com/photo/2017/06/13/22/42/twilight-2400368_1280.jpg')"}} id='Header'>
+        <div className='relative min-h-screen mb-4 flex items-center w-full overflow-hidden' id='Header'>
+            <img
+                src={assets.hero_img}
+                alt=""
+                aria-hidden="true"
+                fetchpriority="high"
+                className='absolute inset-0 -z-10 h-full w-full object-cover object-center'
+            />
             <Navbar/>
             <div
              className='text-white container text-center py-4 px-6 mx-auto md:px-20 lg:px-32' >

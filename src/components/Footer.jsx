@@ -21,7 +21,7 @@ function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 border-t border-gray-700 pt-8">
           {/* Brand Info */}
           <div className="-mt-10">
-            <img className="h-16 w-28 m-3" src={assets.logo1} alt="" />
+            <img className="h-16 w-28 m-3" src={assets.logo1} alt="Murray Investment Company logo" loading="lazy" decoding="async" />
             <p className="text-gray-300 -mt-5">
             We provide the best industrial and technological services throughout Ghana.
             </p>

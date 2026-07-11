@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaCheckCircle, FaNetworkWired, FaKey, FaChartLine } from 'react-icons/fa';
+import { FaCheckCircle, FaKey, FaChartLine } from 'react-icons/fa';
 import { GiCircuitry } from 'react-icons/gi';
 import { BiGitBranch } from 'react-icons/bi';
 

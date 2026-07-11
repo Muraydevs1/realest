@@ -11,7 +11,7 @@ function Services() {
             <div className="grid md:grid-cols-3 gap-6">
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropRen'>
                     <div className="mb-4">
-                         <img src={assets.proprenovation_png} alt="Property Renovation" className="w-full h-auto mb-14" />
+                         <img src={assets.proprenovation_png} alt="Property Renovation" className="w-full h-auto mb-14" width="1256" height="834" loading="lazy" decoding="async" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-center">Property Renovation</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
@@ -21,7 +21,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropDev'>
                     <div className="mb-4">
-                        <img src={assets.propdevelopment_png}alt="Property Development" className="w-full h-auto mb-14" />
+                        <img src={assets.propdevelopment_png} alt="Property Development" className="w-full h-auto mb-14" width="1600" height="1067" loading="lazy" decoding="async" />
                     </div>                                                                                  
                     <h3 className="text-xl font-semibold mb-2 text-center">Property Development</h3>
                     <p className="text-gray-700 text-sm leading-relaxed ">
@@ -31,7 +31,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='PropMan'>
                     <div className="mb-4">                                                              
-                        <img src={assets.propmanagement_png} alt="Property Management" className="w-full h-auto mb-14" />
+                        <img src={assets.propmanagement_png} alt="Property Management" className="w-full h-auto mb-14" width="300" height="168" loading="lazy" decoding="async" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-center">Property Management</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">           
@@ -40,7 +40,7 @@ function Services() {
                 </div>
                 <div className="bg-orange-50 p-6 rounded-md shadow hover:shadow-lg transition" id='LandSale'>
                     <div className="mb-4">
-                        <img src={assets.landsale_png}alt="Land Sale" className="w-full h-auto mb-14" />
+                        <img src={assets.landsale_png} alt="Land Sale" className="w-full h-auto mb-14" width="292" height="173" loading="lazy" decoding="async" />
                     </div>
                     <h3 className="text-xl font-semibold mb-2 text-center">Land Sale</h3>
                     <p className="text-gray-700 text-sm leading-relaxed">
