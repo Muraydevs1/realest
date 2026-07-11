@@ -2,6 +2,7 @@ import React from 'react'
 import { assets, projectsData } from '../assets/assets'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import PropertyCard from './PropertyCard'
 
 function Projects() {
     const [CurrentIndex, setCurrentIndex] = useState(0)
@@ -69,20 +70,11 @@ function Projects() {
                   }}
                 >
                     {doubledProjects.map((projects, index)=>(
-                        <div 
-                          key={index} 
-                          className='relative flex-shrink-0 w-full sm:w-1/4 hover:cursor-pointer'
-                          onClick={() => handleProjectClick(projects.id)}
-                        > 
-                        <img src={projects.frontimage} alt={projects.alt} className='w-full h-max object-cover mb-14'/>
-                        <div className='absolute left-0 right-0 bottom-5 flex justify-center'>
-                            <div className='inline-block bg-orange-50 w-3/4 px-4 py-2 shadow-md text-center'>
-                                <h2 className='text-lg font-normal text-gray-800'>
-                                    {projects.title}
-                                </h2>
-                                <p className='text-gray-500 text-sm'>{projects.location} </p>
-                            </div>
-                        </div>
+                        <div
+                          key={index}
+                          className='flex-shrink-0 w-full sm:w-1/4'
+                        >
+                        <PropertyCard project={projects} onClick={() => handleProjectClick(projects.id)} />
                         </div>
                     ))}
                 </div>
