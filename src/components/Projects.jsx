@@ -1,85 +1,44 @@
-import React from 'react'
-import { assets, projectsData } from '../assets/assets'
-import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useRef } from 'react'
+import { Link } from 'react-router-dom'
+import { projectsData } from '../assets/assets'
 import PropertyCard from './PropertyCard'
+import { useReveal } from '../utils/motion'
 
 function Projects() {
-    const [CurrentIndex, setCurrentIndex] = useState(0)
-    const [CardstoShow, setCardstoShow] = useState(1)
-    const navigate = useNavigate();
-
-    const doubledProjects = [...projectsData, ...projectsData];
-
-    useEffect(() => {
-        const updateCardsToShow = () => {
-            if (window.innerWidth >= 1024) {
-                setCardstoShow(projectsData.length);
-            } else {
-                setCardstoShow(1);
-            }
-        };
-        updateCardsToShow();
-
-        window.addEventListener('resize', updateCardsToShow);
-
-        const interval = setInterval(() => {
-            setCurrentIndex(prevIndex => (prevIndex + 1) % projectsData.length);
-        }, 5000);
-
-        return () => {
-            window.removeEventListener('resize', updateCardsToShow);
-            clearInterval(interval);
-        };
-    }, []);
-
-    const nextProject = () => {
-        setCurrentIndex((prevIndex)=> (prevIndex +1) % projectsData.length);
-    }
-
-    const previousProject = () => {
-        setCurrentIndex((prevIndex)=> prevIndex === 0 ? projectsData.length - 1 : prevIndex - 1);
-    }
-
-    const handleProjectClick = (projectId) => {
-        navigate(`/projects/${projectId}`);
-    };
-
+    const sectionRef = useRef(null)
+    useReveal(sectionRef)
     return (
-        <div 
-        className='container mx-auto py-4 pt-10 px-6 md:px-20 lg:px-32 my-20 w-full overflow-x-hidden' id='Projects'>
-            <h1 className='text-center font-bold mb-2 text-2xl sm:text-4xl'>Our <span className='underline  decoration-orange-400  underline-offset-4 decoration-1 font-light'>Projects</span></h1>
-            <p className='text-center text-gray-500 mb-8 max-w-80 mx-auto'>Crafting Space, Building Legacies-Explore our Portfolio</p>
-            <div className='flex justify-end items-center mb-8'>
-                <button onClick={previousProject}
-                className='p-4 bg-orange-300 hover:bg-orange-500 rounded mr-2' aria-label='previous project'>
-                    <img src={assets.left_arrow} alt="previous"  />
-                </button>
-                <button onClick={nextProject}
-                 className='p-4 bg-orange-300 hover:bg-orange-500 rounded mr-2' aria-label='next project'>
-                    <img src={assets.right_arrow} alt="next"  />
-                </button>
+        <section
+            ref={sectionRef}
+            className='mx-auto w-full max-w-7xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8'
+            id='Projects'
+        >
+            <h2 data-reveal className='text-center font-bold mb-2 text-3xl sm:text-4xl'>
+                Our <span className='underline decoration-brand-500 underline-offset-4 decoration-1 font-light'>Projects</span>
+            </h2>
+            <p className='text-center text-gray-500 mb-10 max-w-80 mx-auto'>
+                Crafting Space, Building Legacies-Explore our Portfolio
+            </p>
+
+            {/* 2×2 keeps the current four-item portfolio balanced; move to
+                lg:grid-cols-3 once the portfolio grows past a screenful */}
+            <div data-reveal-group className='mx-auto grid max-w-4xl grid-cols-1 gap-8 sm:grid-cols-2 lg:max-w-5xl'>
+                {projectsData.map((project) => (
+                    <div key={project.id} data-reveal-item className='h-full'>
+                        <PropertyCard project={project} />
+                    </div>
+                ))}
             </div>
 
-            <div className='overflow-hidden'>
-                <div 
-                  className='flex gap-8'
-                  style={{
-                    transform: `translateX(-${(CurrentIndex * 100) / CardstoShow}%)`,
-                    transition: 'transform 0.5s ease-in-out'
-                  }}
+            <div className='mt-12 text-center'>
+                <Link
+                    to='/projects'
+                    className='inline-block rounded-full bg-brand-500 px-8 py-3 uppercase text-white transition duration-300 hover:bg-brand-600'
                 >
-                    {doubledProjects.map((projects, index)=>(
-                        <div
-                          key={index}
-                          className='flex-shrink-0 w-full sm:w-1/4'
-                        >
-                        <PropertyCard project={projects} onClick={() => handleProjectClick(projects.id)} />
-                        </div>
-                    ))}
-                </div>
+                    View All Projects
+                </Link>
             </div>
-        </div>
+        </section>
     )
 }
 
