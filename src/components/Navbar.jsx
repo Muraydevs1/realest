@@ -56,7 +56,7 @@ function Navbar() {
   const menuItems = [
     { label: "HOME", icon: Home, link: "/" },
     { label: "ABOUT US", icon: Info, link: "/about" },
-    { label: "PROJECTS", icon: FolderOpen, link: "/projects" },
+    { label: "PROPERTIES", icon: FolderOpen, link: "/properties" },
     { label: "CONTACT US", icon: Mail, href: "#Contacts", },
   ]
 

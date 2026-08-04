@@ -19,8 +19,10 @@ function PropertyCard({ project }) {
     return (
         <article className='h-full'>
             <Link
-                to={`/projects/${project.id}`}
-                aria-label={`View details of ${project.title} in ${project.location}`}
+                to={`/properties/${project.id}`}
+                // Category-aware wording: portfolio entries are development
+                // work ("project"), commercial entries are inventory ("property").
+                aria-label={`View ${category ? 'property' : 'project'}: ${project.title} in ${project.location}`}
                 className='group flex h-full flex-col rounded-xl outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 motion-safe:transition-transform motion-safe:duration-300 motion-safe:hover:-translate-y-1'
             >
                 <div className='relative aspect-[4/3] w-full overflow-hidden rounded-xl bg-gray-100 shadow-sm transition-shadow duration-300 group-hover:shadow-lg'>

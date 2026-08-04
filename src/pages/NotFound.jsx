@@ -18,8 +18,8 @@ function NotFound() {
                 <Link to='/' className='bg-brand-500 text-white hover:bg-brand-600 px-8 py-3 rounded-full uppercase transition duration-300'>
                     Back to Home
                 </Link>
-                <Link to='/projects' className='border border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-white px-8 py-3 rounded-full uppercase transition duration-300'>
-                    View Projects
+                <Link to='/properties' className='border border-brand-500 text-brand-600 hover:bg-brand-500 hover:text-white px-8 py-3 rounded-full uppercase transition duration-300'>
+                    View Properties
                 </Link>
             </div>
         </main>

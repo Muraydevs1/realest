@@ -57,7 +57,7 @@ function HeroContent({ label, labelRef }) {
             </p>
             <div data-hero-ctas className='mt-10 flex flex-wrap items-center justify-center gap-4'>
                 <a href='#Contacts' className='whitespace-nowrap rounded-full border border-transparent bg-brand-500 px-8 py-3 uppercase text-white transition duration-300 hover:bg-brand-600'>Contact Us</a>
-                <Link to='/projects' className='whitespace-nowrap rounded-full border border-white/90 px-8 py-3 uppercase transition duration-300 hover:bg-white hover:text-brand-600'>Projects</Link>
+                <Link to='/properties' className='whitespace-nowrap rounded-full border border-white/90 px-8 py-3 uppercase transition duration-300 hover:bg-white hover:text-brand-600'>View Properties</Link>
             </div>
         </div>
     )

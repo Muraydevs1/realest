@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { projectsData } from '../assets/assets'
 import PropertyCard from './PropertyCard'
 import { useReveal } from '../utils/motion'
+import { SECONDARY_CTA } from '../utils/ui'
 
 function Projects() {
     const sectionRef = useRef(null)
@@ -32,10 +33,10 @@ function Projects() {
 
             <div className='mt-12 text-center'>
                 <Link
-                    to='/projects'
-                    className='inline-block rounded-full bg-brand-500 px-8 py-3 uppercase text-white transition duration-300 hover:bg-brand-600'
+                    to='/properties'
+                    className={SECONDARY_CTA}
                 >
-                    View All Projects
+                    View All Properties
                 </Link>
             </div>
         </section>

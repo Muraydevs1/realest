@@ -128,8 +128,8 @@ export function breadcrumbJsonLd(project) {
         '@type': 'BreadcrumbList',
         itemListElement: [
             { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
-            { '@type': 'ListItem', position: 2, name: 'Projects', item: absoluteUrl('/projects') },
-            { '@type': 'ListItem', position: 3, name: project.title, item: absoluteUrl(`/projects/${project.id}`) },
+            { '@type': 'ListItem', position: 2, name: 'Properties', item: absoluteUrl('/properties') },
+            { '@type': 'ListItem', position: 3, name: project.title, item: absoluteUrl(`/properties/${project.id}`) },
         ],
     }
 }

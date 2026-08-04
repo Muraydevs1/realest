@@ -61,6 +61,132 @@ export function isLandListing(project) {
     return project.category === 'sale' && project.propertyType === 'land'
 }
 
+/* ------------------------------------------------------------------ *
+ * Filter architecture
+ *
+ * Four independent dimensions stay independent (see the model notes in
+ * src/assets/assets.js). Nothing here hardcodes which values exist: the UI
+ * is built from whatever verified values are actually present in the data,
+ * so adding a land listing or a renovation makes its filter appear with no
+ * component or JSX changes.
+ *
+ * Filter state shape (deliberately URL-serialisable, so query-param sync can
+ * be added later without rebuilding any of this):
+ *   { category: 'all'|'sale'|'rent'|'portfolio',
+ *     propertyType: [], status: [], projectType: [], condition: [] }
+ * e.g. /properties?category=sale&propertyType=land&status=available
+ * ------------------------------------------------------------------ */
+
+export const PRIMARY_CATEGORIES = [
+    { key: 'all', label: 'All Properties' },
+    { key: 'sale', label: 'For Sale' },
+    { key: 'rent', label: 'For Rent' },
+    { key: 'portfolio', label: 'Our Portfolio' },
+]
+
+// Turns an unmapped but verified value ('semi-detached') into a readable
+// label, so a new data value never renders as a raw slug.
+const humanize = (value) =>
+    String(value).split('-').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+
+const PROPERTY_TYPE_LABELS = {
+    house: 'House',
+    apartment: 'Apartment',
+    land: 'Land',
+    'commercial-property': 'Commercial Property',
+}
+
+const PROJECT_TYPE_LABELS = {
+    development: 'Development',
+    renovation: 'Renovation',
+    'property-management': 'Property Management',
+    'land-sale': 'Land Sale',
+}
+
+const CONDITION_LABELS = { renovated: 'Renovated', new: 'New' }
+
+// Order here is the order the filter groups render in.
+export const SECONDARY_DIMENSIONS = [
+    { key: 'propertyType', label: 'Property Type', labels: PROPERTY_TYPE_LABELS },
+    { key: 'status', label: 'Status', labels: STATUS_LABELS },
+    { key: 'projectType', label: 'Project Type', labels: PROJECT_TYPE_LABELS },
+    { key: 'condition', label: 'Condition', labels: CONDITION_LABELS },
+]
+
+export const EMPTY_FILTERS = Object.freeze({
+    category: 'all',
+    propertyType: [],
+    status: [],
+    projectType: [],
+    condition: [],
+})
+
+export function createFilters(overrides = {}) {
+    return { ...EMPTY_FILTERS, ...overrides }
+}
+
+// Deterministic: input order is preserved, and a dimension with no selected
+// values simply does not constrain the result.
+export function filterProjects(projects, filters = EMPTY_FILTERS) {
+    return projects.filter((project) => {
+        if (filters.category && filters.category !== 'all' && project.category !== filters.category) {
+            return false
+        }
+        return SECONDARY_DIMENSIONS.every(({ key }) => {
+            const selected = filters[key]
+            if (!selected || selected.length === 0) return true
+            return selected.includes(project[key])
+        })
+    })
+}
+
+// Primary tabs: 'All' always shows; a category tab shows only when it has at
+// least one verified entry, so empty "For Sale"/"For Rent" tabs never appear.
+export function availableCategories(projects) {
+    return PRIMARY_CATEGORIES.filter(
+        (c) => c.key === 'all' || projects.some((p) => p.category === c.key)
+    ).map((c) => ({
+        ...c,
+        count: c.key === 'all' ? projects.length : projects.filter((p) => p.category === c.key).length,
+    }))
+}
+
+// Secondary groups, derived from the data currently in scope for the chosen
+// category. A dimension where every entry is null (unverified) yields no
+// options and the whole group disappears.
+export function availableFilterGroups(projects, filters = EMPTY_FILTERS) {
+    const inCategory = filters.category && filters.category !== 'all'
+        ? projects.filter((p) => p.category === filters.category)
+        : projects
+
+    return SECONDARY_DIMENSIONS.map(({ key, label, labels }) => {
+        const values = [...new Set(inCategory.map((p) => p[key]).filter(Boolean))].sort()
+        return {
+            key,
+            label,
+            options: values.map((value) => ({
+                value,
+                label: labels[value] ?? humanize(value),
+                // count reflects the other active filters, so a checkbox never
+                // promises results it cannot deliver
+                count: filterProjects(inCategory, { ...filters, category: 'all', [key]: [value] }).length,
+            })),
+        }
+    }).filter((group) => group.options.length > 0)
+}
+
+export function activeFilterCount(filters = EMPTY_FILTERS) {
+    return SECONDARY_DIMENSIONS.reduce((total, { key }) => total + (filters[key]?.length ?? 0), 0)
+}
+
+export function toggleFilterValue(filters, key, value) {
+    const current = filters[key] ?? []
+    return {
+        ...filters,
+        [key]: current.includes(value) ? current.filter((v) => v !== value) : [...current, value],
+    }
+}
+
 // Builds the listing groupings a page should render. Only non-empty groups
 // come back, so a section exists if and only if verified entries exist.
 export function listingGroups(projects) {

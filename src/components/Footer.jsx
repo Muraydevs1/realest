@@ -37,7 +37,7 @@ function Footer() {
             <ul className="mt-2 space-y-2 text-gray-400">
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#About">About Us</Link></li>
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#Services">Services</Link></li>
-              <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#Projects">Projects</Link></li>
+              <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/properties">Properties</Link></li>
               <li className="hover:text-brand-400"><a className="inline-block py-1" href="#Contacts">Contacts</a></li>
             </ul>
           </div>

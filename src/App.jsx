@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, useLocation, useParams, Navigate } from 'react-router-dom';
 import { FaWhatsapp } from 'react-icons/fa';
 import { enquiryMessage, whatsappUrl } from './utils/listings';
 import Header from './components/Header';
@@ -10,7 +10,7 @@ import ProjectDetails from './pages/ProjectDetails';
 import AboutUs from './pages/AboutUs';
 import Services from './components/Services';
 import Projects from './components/Projects';
-import ProjectsPage from './pages/ProjectsPage';
+import PropertiesPage from './pages/PropertiesPage';
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/NotFound';
 import { usePageMeta } from './utils/seo';
@@ -33,11 +33,19 @@ function Home() {
   );
 }
 
-// Project-detail pages carry their own contextual enquiry CTA, so the
-// global floating WhatsApp button is suppressed there.
+// Detail pages carry their own contextual enquiry CTA, so the global floating
+// WhatsApp button is suppressed there. Matches the legacy /projects path too,
+// since that route stays alive as a redirect.
 function useIsProjectDetailPage() {
   const { pathname } = useLocation();
-  return /^\/projects\/[^/]+$/.test(pathname);
+  return /^\/(properties|projects)\/[^/]+$/.test(pathname);
+}
+
+// Legacy /projects/:id -> /properties/:id. Existing bookmarks and any links
+// already shared keep working; `replace` keeps the old URL out of history.
+function LegacyProjectRedirect() {
+  const { id } = useParams();
+  return <Navigate to={`/properties/${id}`} replace />;
 }
 
 function BackToTopButton() {
@@ -98,8 +106,12 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
-          <Route path="/projects/:id" element={<ProjectDetails />} />
-          <Route path="/projects" element={<ProjectsPage />} />
+          {/* Properties is the primary browsing destination */}
+          <Route path="/properties" element={<PropertiesPage />} />
+          <Route path="/properties/:id" element={<ProjectDetails />} />
+          {/* Compatibility: the previous /projects URLs keep working */}
+          <Route path="/projects" element={<Navigate to="/properties" replace />} />
+          <Route path="/projects/:id" element={<LegacyProjectRedirect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <Footer />

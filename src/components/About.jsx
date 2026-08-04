@@ -2,6 +2,7 @@ import { useRef } from 'react'
 import { assets } from '../assets/assets'
 import { Link } from 'react-router-dom'
 import { useReveal } from '../utils/motion'
+import { SECONDARY_CTA } from '../utils/ui'
 
 
 function About() {
@@ -40,7 +41,7 @@ function About() {
                         Our mission is to provide customized and innovative housing products and services by deploying new and cost effective technology, while providing secure legal cover, and delivering in a contractually bound manner.
                     </p>
                     <p className='italic text-brand-500'>&ldquo;Your Customized Housing Solutions Provider&rdquo;</p>
-                    <Link to="/about" className='border border-brand-500 hover:bg-brand-500 hover:text-white px-5 py-3 rounded-full cursor-pointer uppercase mt-6 transition duration-300'>Learn More About Us</Link>
+                    <Link to="/about" className={`${SECONDARY_CTA} mt-6`}>Learn More About Us</Link>
                 </div>
             </div>
         </div>

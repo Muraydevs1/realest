@@ -31,9 +31,11 @@ const today = new Date().toISOString().slice(0, 10)
 // changefreq/priority are hints only; kept conservative and honest.
 const routes = [
     { loc: '/', changefreq: 'monthly', priority: '1.0' },
-    { loc: '/projects', changefreq: 'monthly', priority: '0.8' },
+    // /properties is the canonical browsing route; the legacy /projects paths
+    // redirect to it and are deliberately excluded from the sitemap.
+    { loc: '/properties', changefreq: 'monthly', priority: '0.8' },
     { loc: '/about', changefreq: 'yearly', priority: '0.6' },
-    ...ids.map((id) => ({ loc: `/projects/${id}`, changefreq: 'yearly', priority: '0.7' })),
+    ...ids.map((id) => ({ loc: `/properties/${id}`, changefreq: 'yearly', priority: '0.7' })),
 ]
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

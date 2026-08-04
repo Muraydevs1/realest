@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import { assets } from '../assets/assets'
 import { useReveal } from '../utils/motion'
+import { SECONDARY_CTA } from '../utils/ui'
 
 // The four services the company's own copy supports. Each description states
 // what the service IS — none of them implies that inventory is currently
@@ -66,7 +67,7 @@ function Services() {
             <div data-reveal className="mt-10 text-center">
                 <a
                     href="#Contacts"
-                    className="inline-block rounded-full border border-brand-500 px-8 py-3 uppercase text-brand-600 transition duration-300 hover:bg-brand-500 hover:text-white"
+                    className={SECONDARY_CTA}
                 >
                     Enquire About A Service
                 </a>
