@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useReveal } from '../utils/motion';
+import { usePageMeta, useJsonLd, breadcrumbJsonLd } from '../utils/seo';
 import { ArrowLeft, ChevronLeft, ChevronRight, MapPin, Phone, FileText, BedDouble, Bath, Ruler, Home } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { projectsData } from '../assets/assets';
@@ -32,15 +33,37 @@ function ProjectDetails() {
   const pageRef = useRef(null);
   useReveal(pageRef);
 
+  // Hooks run unconditionally (before the not-found return). Descriptions are
+  // built only from verified project fields — never invented specifics.
+  usePageMeta(
+    project
+      ? {
+        title: `${project.title}, ${project.location} | Murray Investments Co. Ltd.`,
+        description: `${project.description} A ${statusLabel(project.status).toLowerCase()} project by Murray Investments Co. Ltd. in ${project.location}, Ghana.`,
+        path: `/projects/${project.id}`,
+        image: project.coverImage,
+      }
+      : {
+        title: 'Project Not Found | Murray Investments Co. Ltd.',
+        description: 'This project does not exist or is no longer available.',
+        path: '/projects',
+        robots: 'noindex, follow',
+      }
+  );
+  // BreadcrumbList only. No RealEstateListing/Residence schema: these are
+  // portfolio entries with no verified price, size or room data, and inventing
+  // those values would be structured-data spam.
+  useJsonLd('breadcrumb', project ? breadcrumbJsonLd(project) : null);
+
   if (!project) {
     return (
-      <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-20">
+      <main id="main-content" className="min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-20">
         <h1 className="text-2xl font-semibold text-gray-800 mb-2">Project not found</h1>
         <p className="text-gray-500 mb-8">This project does not exist or is no longer available.</p>
         <Link to="/projects" className="bg-brand-500 text-white hover:bg-brand-600 px-8 py-3 rounded-full uppercase transition duration-300">
           View all Projects
         </Link>
-      </div>
+      </main>
     );
   }
 
@@ -94,7 +117,7 @@ function ProjectDetails() {
   };
 
   return (
-    <main ref={pageRef} data-reveal-group className="mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8">
+    <main id="main-content" ref={pageRef} data-reveal-group className="mx-auto max-w-5xl px-4 pt-24 pb-16 sm:px-6 sm:pt-28 lg:px-8">
       <Link
         to="/projects"
         data-reveal-item

@@ -40,7 +40,7 @@ function HeroContent({ label, labelRef }) {
                 <p
                     ref={labelRef}
                     data-hero-eyebrow
-                    className='mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 sm:text-sm'
+                    className='mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-brand-500/80 sm:text-sm'
                 >
                     Featured Project · {label}
                 </p>
@@ -48,7 +48,7 @@ function HeroContent({ label, labelRef }) {
             {/* overflow-hidden wrapper gives the headline a clipped upward reveal */}
             <div className='overflow-hidden'>
                 {/* clamp(): 36px at 320px viewports scaling smoothly to 72px ≥1280px */}
-                <h1 data-hero-headline className='mx-auto max-w-3xl font-semibold leading-[1.1] text-[clamp(2.25rem,5vw+1rem,4.5rem)]'>
+                <h1 data-hero-headline className='mx-auto max-w-3xl font-semibold leading-[1.1] text-[clamp(2.25rem,5vw+1rem,4.5rem)] '>
                     Explore homes that fit your dream.
                 </h1>
             </div>

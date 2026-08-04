@@ -68,13 +68,14 @@ function Navbar() {
   }
 
   return (
-    <div className="fixed left-0 right-0 top-0 z-40 bg-white shadow-lg">
+    <header className="fixed left-0 right-0 top-0 z-40 bg-white shadow-lg">
       {/* Bar height is invariant: 48+2*8=64px (base), 56+2*4=64px (sm), 64+2*4=72px (lg).
           The logo asset is tightly cropped, so the box height IS the visible art height. */}
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-2 sm:px-6 sm:py-1 lg:px-8">
         <Link to="/"><img src={assets.logoPrimary} alt="Murray Investments Co. Ltd. logo" width="399" height="320" className="h-12 w-auto object-contain sm:h-14 lg:h-16" /></Link>
         {/* Desktop Menu */}
-        <ul className="hidden md:flex gap-7 text-gray-900 font-bold">
+        <nav aria-label="Main" className="hidden md:block">
+        <ul className="flex gap-7 text-gray-900 font-bold">
           {menuItems.map((item, index) => (
             <li key={index}>
               {item.link ? (
@@ -98,6 +99,7 @@ function Navbar() {
             </li>
           ))}
         </ul>
+        </nav>
 
         {/* Full phone number only where it fits; icon-only link on tablet */}
         <a href={CONTACT.phoneHref} className="hidden lg:flex items-center gap-2 whitespace-nowrap text-gray-900 font-semibold px-2 py-2 hover:underline">
@@ -147,7 +149,7 @@ function Navbar() {
         </div>
 
         {/* Menu Items */}
-        <nav className="flex flex-col mt-4">
+        <nav aria-label="Mobile" className="flex flex-col mt-4">
           {menuItems.map((item, index) => {
             const IconComponent = item.icon
             return item.link ? (
@@ -216,7 +218,7 @@ function Navbar() {
           </div>
         </div>
       </div>
-    </div>
+    </header>
   )
 }
 

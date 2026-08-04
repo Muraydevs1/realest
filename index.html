@@ -2,9 +2,14 @@
 <html lang="en" class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Icons & PWA -->
     <link rel="icon" type="image/png" href="/favicon.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#C80010" />
+
     <!-- Outfit is self-hosted (public/fonts); @font-face lives in src/index.css -->
     <link
       rel="preload"
@@ -13,7 +18,80 @@
       type="font/woff2"
       crossorigin
     />
-    <title>Murray Investments Co. Ltd.</title>
+
+    <!--
+      Static site-level metadata. Social scrapers (WhatsApp, Facebook,
+      LinkedIn, X) do not execute JavaScript, so these defaults are what they
+      read for EVERY route. React overwrites them per page at runtime for
+      browsers and for crawlers that do render JS (e.g. Googlebot).
+      __SITE_ORIGIN__ is substituted at build time — see vite.config.js.
+    -->
+    <title>Murray Investments Co. Ltd. | Real Estate Development in Ghana</title>
+    <meta
+      name="description"
+      content="Murray Investments Co. Ltd. is a Ghanaian real estate company that develops, markets and manages properties across Ghana and the West African sub-region."
+    />
+    <link rel="canonical" href="__SITE_ORIGIN__/" />
+    <meta name="robots" content="index, follow" />
+
+    <meta property="og:site_name" content="Murray Investments Co. Ltd." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Murray Investments Co. Ltd. | Real Estate Development in Ghana" />
+    <meta
+      property="og:description"
+      content="Murray Investments Co. Ltd. is a Ghanaian real estate company that develops, markets and manages properties across Ghana and the West African sub-region."
+    />
+    <meta property="og:url" content="__SITE_ORIGIN__/" />
+    <meta property="og:image" content="__SITE_ORIGIN__/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Murray Investments Co. Ltd." />
+    <meta property="og:locale" content="en_GH" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Murray Investments Co. Ltd. | Real Estate Development in Ghana" />
+    <meta
+      name="twitter:description"
+      content="Murray Investments Co. Ltd. is a Ghanaian real estate company that develops, markets and manages properties across Ghana and the West African sub-region."
+    />
+    <meta name="twitter:image" content="__SITE_ORIGIN__/og-image.jpg" />
+
+    <!--
+      Site-level structured data. RealEstateAgent is a subtype of both
+      LocalBusiness and Organization, so one node satisfies all three.
+      Every value below is published elsewhere on the site — no invented
+      ratings, prices, founding dates or opening hours.
+    -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "RealEstateAgent",
+        "@id": "__SITE_ORIGIN__/#organization",
+        "name": "Murray Investments Co. Ltd.",
+        "url": "__SITE_ORIGIN__/",
+        "logo": "__SITE_ORIGIN__/icon-512.png",
+        "image": "__SITE_ORIGIN__/og-image.jpg",
+        "description": "A Ghanaian real estate company developing, marketing and managing quality properties across Ghana and the West African sub-region.",
+        "telephone": "+233244718186",
+        "email": "murraygh@yahoo.com",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plot M51, C25",
+          "addressLocality": "Tema",
+          "addressCountry": "GH"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Ghana" },
+          { "@type": "Country", "name": "Burkina Faso" }
+        ],
+        "knowsAbout": [
+          "Property Development",
+          "Property Management",
+          "Property Renovation",
+          "Land Sale"
+        ]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

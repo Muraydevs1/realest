@@ -13,16 +13,23 @@ import Projects from './components/Projects';
 import ProjectsPage from './pages/ProjectsPage';
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/NotFound';
+import { usePageMeta } from './utils/seo';
 
 
 function Home() {
+  usePageMeta({
+    title: 'Murray Investments Co. Ltd. | Real Estate Development in Ghana',
+    description:
+      'Murray Investments Co. Ltd. is a Ghanaian real estate company that develops, markets and manages properties across Ghana and the West African sub-region.',
+    path: '/',
+  });
   return (
-    <>
+    <main id="main-content">
       <Header />
       <About />
       <Projects />
       <Services />
-    </>
+    </main>
   );
 }
 
@@ -80,6 +87,13 @@ function App() {
     <Router>
       <ScrollToTop />
       <div className="w-full overflow-hidden">
+        {/* Keyboard users can jump past the fixed navbar; visible only on focus */}
+        <a
+          href="#main-content"
+          className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:rounded-full focus:bg-brand-500 focus:px-5 focus:py-3 focus:text-white focus:outline-none focus:ring-2 focus:ring-white"
+        >
+          Skip to main content
+        </a>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />

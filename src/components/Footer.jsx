@@ -33,7 +33,7 @@ function Footer() {
 
           {/* Company Links */}
           <div className="min-w-0">
-            <h4 className="text-lg font-semibold">Company</h4>
+            <h3 className="text-lg font-semibold">Company</h3>
             <ul className="mt-2 space-y-2 text-gray-400">
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#About">About Us</Link></li>
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#Services">Services</Link></li>
@@ -44,7 +44,7 @@ function Footer() {
 
           {/* Services Links */}
           <div className="min-w-0">
-            <h4 className="text-lg font-semibold">Services</h4>
+            <h3 className="text-lg font-semibold">Services</h3>
             <ul className="mt-2 space-y-2 text-gray-400">
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#PropRen">Property Renovation</Link></li>
               <li className="hover:text-brand-400"><Link className="inline-block py-1" to="/#PropDev">Property Development</Link></li>
@@ -56,7 +56,7 @@ function Footer() {
           {/* Contact — centered beneath both columns on mobile, left-aligned
               in its own column on md+ */}
             <div className="col-span-2 text-center md:col-span-1 md:text-left">
-             <h4 className="text-lg font-semibold">Contact Us</h4>
+             <h3 className="text-lg font-semibold">Contact Us</h3>
              <div className="mt-3 flex justify-center gap-2 text-xl md:justify-start">
                 <a href="mailto:murraygh@yahoo.com" aria-label="Email Murray Investments Co. Ltd." className="p-3 text-gray-300 hover:text-brand-400 transition"><FaEnvelope aria-hidden="true" /></a>
               <a href="https://wa.me/233244718186" aria-label="Chat with us on WhatsApp" className="p-3 text-gray-300 hover:text-[#25D366] transition"><FaWhatsapp aria-hidden="true" /></a>
