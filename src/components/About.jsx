@@ -37,7 +37,7 @@ function About() {
                         </div>
                     </div>
                     <p className='mt-8 mb-4 max-w-lg text-base leading-relaxed text-gray-700 md:text-lg'>
-                        Murray Investments Co. Ltd. is a multiline realty company established to provide diversified and innovative products in the real estate industry in Ghana. The company develops, markets and manages properties of all sorts.
+                        Murray Investments Company Limited is a multiline realty company established to provide diversified and innovative products in the real estate industry in Ghana. The company develops, markets and manages properties of all sorts.
                         Our mission is to provide customized and innovative housing products and services by deploying new and cost effective technology, while providing secure legal cover, and delivering in a contractually bound manner.
                     </p>
                     <p className='italic text-brand-500'>&ldquo;Your Customized Housing Solutions Provider&rdquo;</p>

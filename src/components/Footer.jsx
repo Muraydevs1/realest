@@ -25,7 +25,7 @@ function Footer() {
           {/* Brand Info — dedicated dark-background logo variant (white text,
               official red preserved) sits directly on the navy footer */}
           <div className="col-span-2 md:col-span-1">
-            <img className="h-14 w-auto mb-4" src={assets.logoDark} alt="Murray Investments Co. Ltd. logo" loading="lazy" decoding="async" />
+            <img className="h-14 w-auto mb-4" src={assets.logoDark} alt="Murray Investments Company Limited logo" loading="lazy" decoding="async" />
             <p className="text-gray-300">
             A Ghanaian real estate company developing, marketing and managing quality properties across Ghana and the West African sub-region.
             </p>
