@@ -2,21 +2,18 @@ import { useEffect } from 'react'
 
 // Site-wide SEO configuration and per-page metadata hooks.
 //
-// PRODUCTION DOMAIN: set VITE_SITE_URL in the deployment environment
-// (e.g. VITE_SITE_URL=https://www.murrayinvestments.com). Until it is set,
-// everything falls back to the reserved .example placeholder below, which is
-// guaranteed never to resolve — a wrong absolute URL fails loudly instead of
-// silently pointing search engines at someone else's domain.
-// The same variable drives robots.txt and sitemap.xml via
-// scripts/generate-seo.mjs, so the domain is configured in ONE place.
-const PLACEHOLDER_ORIGIN = 'https://www.murrayinvestments.example'
+// PRODUCTION DOMAIN: defaults to the live site below. VITE_SITE_URL in the
+// deployment environment overrides it (e.g. for a staging domain).
+// The same value drives robots.txt and sitemap.xml via
+// scripts/generate-seo.mjs and index.html via vite.config.js — keep the
+// DEFAULT_ORIGIN constant in sync across all three files.
+const DEFAULT_ORIGIN = 'https://murrayinvests.com'
 
-const rawOrigin = import.meta.env?.VITE_SITE_URL || PLACEHOLDER_ORIGIN
+const rawOrigin = import.meta.env?.VITE_SITE_URL || DEFAULT_ORIGIN
 const ORIGIN = rawOrigin.replace(/\/+$/, '')
 
 export const SITE = {
     origin: ORIGIN,
-    usesPlaceholderDomain: ORIGIN === PLACEHOLDER_ORIGIN,
     name: 'Murray Investments Co. Ltd.',
     // Verified contact details — mirrored from src/utils/listings.js CONTACT
     // and the footer. Do not add facts that are not published on the site.

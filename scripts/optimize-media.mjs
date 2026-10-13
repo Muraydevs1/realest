@@ -101,19 +101,8 @@ report(src('logo.png'))
   report(src('logo-dark.png'))
 }
 
-// ---------- 6. Favicon from the roof mark of the official logo ----------
-// Hand-tuned bounding box of the roof mark; sharp's trim() misreads the
-// soft glow as background, so the region is fixed instead.
-const mark = await sharp(path.join(BACKUP, 'logo.png'))
-  .extract({ left: 420, top: 130, width: 720, height: 380 })
-  .toBuffer()
-for (const [size, name] of [[64, 'favicon.png'], [180, 'apple-touch-icon.png']]) {
-  const out = path.join(PUBLIC, name)
-  await sharp(mark)
-    .resize({ width: size, height: size, fit: 'contain', background: { r: 0, g: 0, b: 0, alpha: 0 } })
-    .png({ compressionLevel: 9 })
-    .toFile(out)
-  report(out)
-}
+// ---------- 6. Favicons ----------
+// Handled by scripts/generate-icons.mjs (Google-compatible sizes, opaque
+// background). Not generated here so the two scripts cannot overwrite each other.
 
 console.log('done')

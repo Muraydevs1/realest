@@ -3,14 +3,13 @@ import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
 // Absolute URLs (canonical, og:url, og:image, JSON-LD) must be baked into
-// index.html at build time. Set VITE_SITE_URL in the deploy environment; the
-// reserved .example placeholder is used otherwise so a missing config fails
-// loudly instead of pointing crawlers at an unrelated domain.
+// index.html at build time. Defaults to the live domain; VITE_SITE_URL in the
+// deploy environment overrides it.
 // Keep this fallback in sync with src/utils/seo.js and scripts/generate-seo.mjs.
-const PLACEHOLDER_ORIGIN = 'https://www.murrayinvestments.example'
+const DEFAULT_ORIGIN = 'https://murrayinvests.com'
 
 function siteOriginHtmlPlugin() {
-  const origin = (process.env.VITE_SITE_URL || PLACEHOLDER_ORIGIN).replace(/\/+$/, '')
+  const origin = (process.env.VITE_SITE_URL || DEFAULT_ORIGIN).replace(/\/+$/, '')
   return {
     name: 'murray-site-origin-html',
     transformIndexHtml(html) {
