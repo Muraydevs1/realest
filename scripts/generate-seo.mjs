@@ -6,30 +6,20 @@
 //
 // Project detail routes are read out of src/assets/assets.js so the sitemap
 // cannot drift from the real listing data.
-import { readFileSync, writeFileSync } from 'node:fs'
+import { writeFileSync } from 'node:fs'
 import path from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { ROOT, readProjects } from './lib/projects.mjs'
 
-const ROOT = path.dirname(path.dirname(fileURLToPath(import.meta.url)))
 // Keep in sync with src/utils/seo.js and vite.config.js.
 const DEFAULT_ORIGIN = 'https://murrayinvests.com'
 const ORIGIN = (process.env.VITE_SITE_URL || DEFAULT_ORIGIN).replace(/\/+$/, '')
 
-// Extract the `id:` of every entry in projectsData (not testimonials etc.)
-function projectIds() {
-    const source = readFileSync(path.join(ROOT, 'src/assets/assets.js'), 'utf8')
-    const block = source.slice(source.indexOf('export const projectsData'))
-    const ids = [...block.matchAll(/^\s{4,6}id:\s*(\d+),/gm)].map((m) => Number(m[1]))
-    if (!ids.length) {
-        throw new Error('generate-seo: found no project ids in assets.js — check the projectsData shape')
-    }
-    return ids
-}
+// Same project list the per-route HTML is generated from (scripts/prerender-routes.mjs).
+const ids = readProjects().map((p) => p.id)
 
-const ids = projectIds()
-const today = new Date().toISOString().slice(0, 10)
-
-// changefreq/priority are hints only; kept conservative and honest.
+// changefreq/priority are hints only; kept conservative and honest. No <lastmod>:
+// stamping every URL with the build date is a false freshness signal, and
+// Google ignores lastmod values it finds unreliable.
 const routes = [
     { loc: '/', changefreq: 'monthly', priority: '1.0' },
     // /properties is the canonical browsing route; the legacy /projects paths
@@ -46,7 +36,6 @@ ${routes
         .map(
             (r) => `  <url>
     <loc>${ORIGIN}${r.loc}</loc>
-    <lastmod>${today}</lastmod>
     <changefreq>${r.changefreq}</changefreq>
     <priority>${r.priority}</priority>
   </url>`

@@ -5,16 +5,12 @@ import PropertyFilters from '../components/PropertyFilters'
 import { useReveal } from '../utils/motion'
 import { createFilters, filterProjects, listingGroups } from '../utils/listings'
 import { usePageMeta } from '../utils/seo'
+import { PAGE_META } from '../utils/routeMeta'
 
 const PropertiesPage = () => {
   const pageRef = useRef(null)
   useReveal(pageRef)
-  usePageMeta({
-    title: 'Properties | Murray Investments Co. Ltd.',
-    description:
-      'Browse properties and completed developments by Murray Investments Co. Ltd., including residential projects in East Legon, Dawhenya, Tamale and Frafraha.',
-    path: '/properties',
-  })
+  usePageMeta(PAGE_META.properties)
 
   // Filter state is a plain, URL-serialisable object — see the notes in
   // src/utils/listings.js. Query-param sync can be layered on later without

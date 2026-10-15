@@ -1,14 +1,10 @@
 import { Link } from 'react-router-dom'
 import { usePageMeta } from '../utils/seo'
+import { PAGE_META } from '../utils/routeMeta'
 
 function NotFound() {
     // noindex: error pages must never enter the search index.
-    usePageMeta({
-        title: 'Page Not Found | Murray Investments Co. Ltd.',
-        description: 'The page you are looking for does not exist or has been moved.',
-        path: '/404',
-        robots: 'noindex, follow',
-    })
+    usePageMeta(PAGE_META.notFound)
     return (
         <main id='main-content' className='min-h-[60vh] flex flex-col items-center justify-center text-center px-6 pt-20'>
             <p className='text-6xl font-bold text-brand-500 mb-4'>404</p>

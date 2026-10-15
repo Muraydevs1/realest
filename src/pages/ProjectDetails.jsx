@@ -2,6 +2,7 @@ import { useRef, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useReveal } from '../utils/motion';
 import { usePageMeta, useJsonLd, breadcrumbJsonLd } from '../utils/seo';
+import { PAGE_META, projectMeta } from '../utils/routeMeta';
 import { ArrowLeft, ChevronLeft, ChevronRight, MapPin, Phone, FileText, BedDouble, Bath, Ruler, Home } from 'lucide-react';
 import { FaWhatsapp } from 'react-icons/fa';
 import { projectsData } from '../assets/assets';
@@ -35,21 +36,7 @@ function ProjectDetails() {
 
   // Hooks run unconditionally (before the not-found return). Descriptions are
   // built only from verified project fields — never invented specifics.
-  usePageMeta(
-    project
-      ? {
-        title: `${project.title}, ${project.location} | Murray Investments Co. Ltd.`,
-        description: `${project.description} A ${statusLabel(project.status).toLowerCase()} project by Murray Investments Co. Ltd. in ${project.location}, Ghana.`,
-        path: `/properties/${project.id}`,
-        image: project.coverImage,
-      }
-      : {
-        title: 'Project Not Found | Murray Investments Co. Ltd.',
-        description: 'This project does not exist or is no longer available.',
-        path: '/properties',
-        robots: 'noindex, follow',
-      }
-  );
+  usePageMeta(project ? { ...projectMeta(project), image: project.coverImage } : PAGE_META.projectNotFound);
   // BreadcrumbList only. No RealEstateListing/Residence schema: these are
   // portfolio entries with no verified price, size or room data, and inventing
   // those values would be structured-data spam.

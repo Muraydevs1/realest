@@ -14,6 +14,8 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="theme-color" content="#C80010" />
+    <meta name="application-name" content="Murray Investments Co. Ltd." />
+    <meta name="apple-mobile-web-app-title" content="Murray Investments" />
 
     <!-- Outfit is self-hosted (public/fonts); @font-face lives in src/index.css -->
     <link
@@ -25,10 +27,12 @@
     />
 
     <!--
-      Static site-level metadata. Social scrapers (WhatsApp, Facebook,
-      LinkedIn, X) do not execute JavaScript, so these defaults are what they
-      read for EVERY route. React overwrites them per page at runtime for
-      browsers and for crawlers that do render JS (e.g. Googlebot).
+      Homepage metadata. scripts/prerender-routes.mjs copies this file once
+      per route after `vite build` and rewrites the title, description,
+      canonical, robots and Open Graph/Twitter tags below with that route's
+      values (from src/utils/routeMeta.js), so crawlers and social scrapers
+      that do not run JavaScript still get correct per-page tags. React keeps
+      them in sync on client-side navigation.
       __SITE_ORIGIN__ is substituted at build time — see vite.config.js.
     -->
     <title>Murray Investments Co. Ltd. | Real Estate Development in Ghana</title>
@@ -62,6 +66,25 @@
     <meta name="twitter:image" content="__SITE_ORIGIN__/og-image.jpg" />
 
     <!--
+      Google site name (https://developers.google.com/search/docs/appearance/site-names).
+      Must live on the homepage; scripts/prerender-routes.mjs strips this
+      block (by its id) from every other route's HTML. No SearchAction: the
+      site has no search results page to point it at.
+    -->
+    <script type="application/ld+json" id="jsonld-website">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "__SITE_ORIGIN__/#website",
+        "name": "Murray Investments Co. Ltd.",
+        "alternateName": ["Murray Investments", "Murray Investments Company Limited"],
+        "url": "__SITE_ORIGIN__/",
+        "inLanguage": "en-GH",
+        "publisher": { "@id": "__SITE_ORIGIN__/#organization" }
+      }
+    </script>
+
+    <!--
       Site-level structured data. RealEstateAgent is a subtype of both
       LocalBusiness and Organization, so one node satisfies all three.
       Every value below is published elsewhere on the site — no invented
@@ -73,6 +96,8 @@
         "@type": "RealEstateAgent",
         "@id": "__SITE_ORIGIN__/#organization",
         "name": "Murray Investments Co. Ltd.",
+        "legalName": "Murray Investments Company Limited",
+        "alternateName": "Murray Investments",
         "url": "__SITE_ORIGIN__/",
         "logo": "__SITE_ORIGIN__/icon-512.png",
         "image": "__SITE_ORIGIN__/og-image.jpg",

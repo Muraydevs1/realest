@@ -14,15 +14,11 @@ import PropertiesPage from './pages/PropertiesPage';
 import ScrollToTop from './components/ScrollToTop';
 import NotFound from './pages/NotFound';
 import { usePageMeta } from './utils/seo';
+import { PAGE_META } from './utils/routeMeta';
 
 
 function Home() {
-  usePageMeta({
-    title: 'Murray Investments Co. Ltd. | Real Estate Development in Ghana',
-    description:
-      'Murray Investments Co. Ltd. is a Ghanaian real estate company that develops, markets and manages properties across Ghana and the West African sub-region.',
-    path: '/',
-  });
+  usePageMeta(PAGE_META.home);
   return (
     <main id="main-content">
       <Header />

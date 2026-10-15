@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { BRAND, breadcrumbJsonLd as sharedBreadcrumbJsonLd } from './routeMeta'
 
 // Site-wide SEO configuration and per-page metadata hooks.
 //
@@ -14,7 +15,7 @@ const ORIGIN = rawOrigin.replace(/\/+$/, '')
 
 export const SITE = {
     origin: ORIGIN,
-    name: 'Murray Investments Co. Ltd.',
+    name: BRAND.name,
     // Verified contact details — mirrored from src/utils/listings.js CONTACT
     // and the footer. Do not add facts that are not published on the site.
     phone: '+233244718186',
@@ -118,15 +119,5 @@ export function applyJsonLd(id, data) {
     return () => el.remove()
 }
 
-// Home > Projects > <project title>
-export function breadcrumbJsonLd(project) {
-    return {
-        '@context': 'https://schema.org',
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-            { '@type': 'ListItem', position: 1, name: 'Home', item: absoluteUrl('/') },
-            { '@type': 'ListItem', position: 2, name: 'Properties', item: absoluteUrl('/properties') },
-            { '@type': 'ListItem', position: 3, name: project.title, item: absoluteUrl(`/properties/${project.id}`) },
-        ],
-    }
-}
+// Home > Properties > <project title> (shape defined in routeMeta.js)
+export const breadcrumbJsonLd = (project) => sharedBreadcrumbJsonLd(project, absoluteUrl)

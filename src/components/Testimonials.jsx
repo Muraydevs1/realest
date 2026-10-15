@@ -1,4 +1,3 @@
-import React from 'react'
 import { assets, testimonialsData } from '../assets/assets'
 
 

@@ -231,6 +231,8 @@ function HeroCarousel({ slides, slideCount, multi }) {
                                 width={slide.width}
                                 height={slide.height}
                                 alt={slide.alt}
+                                // React 18 has no camelCase fetchPriority; the lowercase DOM attribute is passed through as-is.
+                                // eslint-disable-next-line react/no-unknown-property
                                 fetchpriority={i === 0 ? 'high' : undefined}
                                 loading={i === 0 ? 'eager' : 'lazy'}
                                 decoding='async'
